@@ -18,4 +18,4 @@ React: ^16.9.0
 - clone the repo and check out at branch *01-setup*
 - cd xillio-react-jest-workshop
 - npx start
-- npx test
+- npx test 
