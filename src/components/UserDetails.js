@@ -9,7 +9,6 @@ class UserDetails extends Component {
     };
 
     render() {
-        console.log(JSON.stringify(this.props, null, 4));
         const { values } = this.props;
         return (
             <Form>
