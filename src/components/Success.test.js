@@ -7,6 +7,11 @@ describe('Success', () => {
         const wrapper = shallow(<Success />);
         // expect(wrapper.find('div')).toHaveLength(1);
         // expect(wrapper.find('div').text()).toEqual('Details Successfully Saved');
+        expect(wrapper.find('div')).toMatchSnapshot();
+    });
+
+    it('snapshot test fails if content is not equal to previous run', () => {
+        const wrapper = shallow(<Success />);
         expect(wrapper.text()).toMatchSnapshot();
     });
 });
