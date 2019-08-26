@@ -33,6 +33,7 @@
   "devDependencies": {
     "enzyme": "latest",
     "enzyme-adapter-react-16": "latest",
+    "moment": "^2.24.0",
     "pretty-format": "latest"
   },
   "jest": {

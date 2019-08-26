@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Success renders 1`] = `"Details Successfully SavedTime: Aug 26th 192019 01:22:18.1818 pm"`;
