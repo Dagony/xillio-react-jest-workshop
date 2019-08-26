@@ -1,20 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
+import prettyFormat from 'pretty-format';
 
 import MainForm from './MainForm';
 
 const mockFunctions = {
-    preventDefault: () => {}
+    preventDefault: () => {
+    }
 };
 
 describe('MainForm', () => {
     it('renders', () => {
-        const wrapper = shallow(<MainForm />);
+        const wrapper = shallow(<MainForm/>);
         expect(wrapper).toHaveLength(1);
     });
 
     it('clicking the \'Save And Continue\' button, shows the second stage of the form', () => {
-        const wrapper = shallow(<MainForm />);
+        const wrapper = shallow(<MainForm/>);
 
         // Check that the MainForm Component has one instance of component named UserDetails
         expect(wrapper.find('UserDetails')).toHaveLength(1);
@@ -26,7 +28,8 @@ describe('MainForm', () => {
         // click the button.
         // Mocking preventDefault()
         form.find('Form > Button').simulate('click', {
-            preventDefault: () => {}
+            preventDefault: () => {
+            }
         });
 
         expect(wrapper.find('UserDetails')).toHaveLength(0);
@@ -34,7 +37,7 @@ describe('MainForm', () => {
     });
 
     it('clicking the \'Save and Continue\' button on the Personal Detail page will show the Confirmation', () => {
-        const wrapper = shallow(<MainForm />);
+        const wrapper = shallow(<MainForm/>);
 
 
         // Click 'Save and Continue' button on Enter User Details part
@@ -53,7 +56,7 @@ describe('MainForm', () => {
     });
 
     it('renders, even when state is messed up', () => {
-        const wrapper = shallow(<MainForm />);
+        const wrapper = shallow(<MainForm/>);
 
         wrapper.instance().setState({
             step: 11,
@@ -69,7 +72,7 @@ describe('MainForm', () => {
 
     // Hit the back button on Enter Personal Details to go back to Enter User Details
     it('When Hit back button on Enter Personal Details, brings user back to Enter User Details', () => {
-        const wrapper = shallow(<MainForm />);
+        const wrapper = shallow(<MainForm/>);
         wrapper.setState({
             step: 2
         });
@@ -79,14 +82,16 @@ describe('MainForm', () => {
     });
 
     it('Adding a value to the form, inserts that value to the state', () => {
-        const wrapper = shallow(<MainForm />);
+        const wrapper = shallow(<MainForm/>);
         const changeEvent = {
             target: {
                 value: 'somethingDifferent'
             }
         };
         wrapper.dive().find('input').at(0).simulate('change', changeEvent);
-        console.log(wrapper.html());
+        console.log(
+            prettyFormat(wrapper.dive().find('input').at(0).props().defaultValue)
+        );
         expect(wrapper.dive().find('input').at(0).props().defaultValue).toEqual('somethingDifferent');
     });
 });
