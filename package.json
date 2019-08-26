@@ -34,5 +34,12 @@
     "enzyme": "latest",
     "enzyme-adapter-react-16": "latest",
     "pretty-format": "latest"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/serviceWorker.js",
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/src/index.js"
+    ]
   }
 }
